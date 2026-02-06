@@ -30,7 +30,15 @@ nextjs-skills/
 │   ├── docker-compose.yml          # PostgreSQL 16 container
 │   ├── .env.example                # Ortam değişkenleri (secret'sız)
 │   ├── biome.json                  # Biome formatter + linter config
-│   └── tsconfig.json               # TypeScript strict config
+│   ├── tsconfig.json               # TypeScript strict config
+│   └── prisma/
+│       ├── schema.prisma           # Base Prisma schema
+│       └── seed.ts                 # Örnek seed dosyası
+├── scripts/
+│   ├── init.sh                     # Proje bootstrap
+│   ├── db-migrate.sh               # Dev/prod migration
+│   ├── db-reset.sh                 # Dev-only DB reset
+│   └── db-seed.sh                  # Prisma seed
 ├── .gitignore
 ├── LICENSE                         # Apache-2.0
 └── README.md

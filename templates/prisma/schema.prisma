@@ -1,0 +1,27 @@
+// ==============================================
+// Base Prisma Schema
+// ==============================================
+// Bu dosya minimal bir başlangıç noktasıdır.
+// Auth tabloları: better-auth-setup skill'i ile eklenir.
+// Domain modelleri: projeye özel olarak genişletilir.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// --- Örnek model (kendi modellerinizle değiştirin) ---
+model Post {
+  id        String   @id @default(cuid())
+  title     String
+  content   String?
+  published Boolean  @default(false)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("posts")
+}

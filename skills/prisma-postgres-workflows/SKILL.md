@@ -24,16 +24,36 @@ Prisma ORM ve PostgreSQL ile çalışırken migration, seed, reset ve ortam ayr�
 - Dev ortamında hızlı reset/seed, prod ortamında güvenli migration politikası gerekiyorsa.
 - Docker Compose ile tekrarlanabilir DB ortamı isteniyorsa.
 
+## Sağlanan Dosyalar
+
+| Dosya | Açıklama |
+|-------|----------|
+| `templates/docker-compose.yml` | PostgreSQL 16 container (healthcheck, named volume) |
+| `templates/.env.example` | Ortam değişkenleri (DATABASE_URL dahil) |
+| `templates/prisma/schema.prisma` | Base Prisma schema (datasource + generator + örnek model) |
+| `templates/prisma/seed.ts` | Örnek seed dosyası (upsert pattern) |
+| `scripts/init.sh` | Projeyi sıfırdan ayağa kaldırır |
+| `scripts/db-migrate.sh` | Ortama göre migrate dev / migrate deploy |
+| `scripts/db-reset.sh` | Dev-only DB reset (prod'da reddeder) |
+| `scripts/db-seed.sh` | Prisma seed çalıştırır |
+
 ## Adımlar
 
-> Detaylı adımlar ve template dosyalar sonraki iterasyonlarda eklenecektir.
+1. **PostgreSQL başlat**: `docker compose up -d` veya `bash scripts/init.sh`
+2. **Ortam değişkenlerini ayarla**: `.env.example` dosyasını `.env` olarak kopyala, değerleri güncelle.
+3. **Schema tanımla**: `prisma/schema.prisma` dosyasını projeye göre düzenle.
+4. **Dev migration**: `bash scripts/db-migrate.sh --name init`
+5. **Seed**: `bash scripts/db-seed.sh`
+6. **Prod deploy**: `NODE_ENV=production bash scripts/db-migrate.sh`
 
-1. Docker Compose ile PostgreSQL tanımla.
-2. `.env.example` ile bağlantı bilgilerini belirle.
-3. `prisma/schema.prisma` base config.
-4. Dev workflow script'leri: migrate dev, seed, reset.
-5. Prod workflow: migrate deploy, backup policy.
-6. CI/CD entegrasyon notları.
+## Dev vs Prod Politikası
+
+| İşlem | Dev | Prod |
+|-------|-----|------|
+| `migrate dev` | Yeni migration oluşturur | Kullanılmaz |
+| `migrate deploy` | Opsiyonel | Tek yol |
+| `db reset` | Serbest | **Engellendi** |
+| `db seed` | Serbest | Manuel karar |
 
 ## DoD (Definition of Done)
 
