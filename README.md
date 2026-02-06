@@ -40,6 +40,8 @@ nextjs-skills/
 │   ├── db-reset.sh                 # Dev-only DB reset
 │   └── db-seed.sh                  # Prisma seed
 ├── .gitignore
+├── CONTRIBUTING.md                 # Katkı rehberi
+├── SECURITY.md                     # Güvenlik politikası
 ├── LICENSE                         # Apache-2.0
 └── README.md
 ```
