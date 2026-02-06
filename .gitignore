@@ -1,0 +1,46 @@
+# === Dependencies ===
+node_modules/
+.bun/
+
+# === Environment ===
+.env
+.env.local
+.env.production
+.env.*.local
+
+# === Next.js ===
+.next/
+out/
+
+# === Prisma ===
+prisma/*.db
+prisma/*.db-journal
+
+# === Build ===
+dist/
+build/
+*.tsbuildinfo
+
+# === Docker ===
+docker-compose.override.yml
+
+# === OS ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === IDE ===
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# === Logs ===
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# === Test / Coverage ===
+coverage/
+.nyc_output/

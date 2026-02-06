@@ -1,0 +1,52 @@
+# nextjs-skills
+
+Open Agent Skills Ecosystem — Next.js, Bun, Prisma, Better Auth ve PostgreSQL stack'i için hazır skill paketleri.
+
+## Stack
+
+| Katman        | Teknoloji           |
+| ------------- | ------------------- |
+| Framework     | Next.js (App Router)|
+| Runtime / PM  | Bun                 |
+| Auth          | Better Auth         |
+| ORM           | Prisma              |
+| Database      | PostgreSQL (Docker)  |
+| Styling       | Tailwind CSS        |
+| Lint/Format   | Biome               |
+| Language      | TypeScript          |
+
+## Repo Yapısı
+
+```
+nextjs-skills/
+├── skills/
+│   ├── nextjs-bun-prisma-stack/    # Proje iskelet kurulumu
+│   │   └── SKILL.md
+│   ├── better-auth-setup/          # Better Auth entegrasyonu
+│   │   └── SKILL.md
+│   └── prisma-postgres-workflows/  # Prisma + PG workflow'ları
+│       └── SKILL.md
+├── .gitignore
+├── LICENSE                         # Apache-2.0
+└── README.md
+```
+
+## Skill Formatı
+
+Her skill klasörü en az bir `SKILL.md` dosyası içerir. Format:
+
+```yaml
+---
+name: skill-adi
+description: Kısa açıklama
+version: "0.1.0"
+license: Apache-2.0
+tags: [...]
+---
+```
+
+Markdown body: amaç, kullanım senaryosu, adımlar, DoD.
+
+## Lisans
+
+Apache-2.0 — detaylar için [LICENSE](./LICENSE) dosyasına bakın.
