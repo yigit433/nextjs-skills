@@ -26,6 +26,11 @@ nextjs-skills/
 │   │   └── SKILL.md
 │   └── prisma-postgres-workflows/  # Prisma + PG workflow'ları
 │       └── SKILL.md
+├── templates/
+│   ├── docker-compose.yml          # PostgreSQL 16 container
+│   ├── .env.example                # Ortam değişkenleri (secret'sız)
+│   ├── biome.json                  # Biome formatter + linter config
+│   └── tsconfig.json               # TypeScript strict config
 ├── .gitignore
 ├── LICENSE                         # Apache-2.0
 └── README.md
