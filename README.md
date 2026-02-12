@@ -1,6 +1,6 @@
 # nextjs-skills
 
-Open Agent Skills Ecosystem — Next.js, Bun, Prisma, Better Auth ve PostgreSQL stack'i için hazır skill paketleri.
+Open Agent Skills Ecosystem — Next.js, Bun, Drizzle ORM, Better Auth ve PostgreSQL stack'i için hazır skill paketi.
 
 ## Stack
 
@@ -9,7 +9,7 @@ Open Agent Skills Ecosystem — Next.js, Bun, Prisma, Better Auth ve PostgreSQL 
 | Framework     | Next.js (App Router)|
 | Runtime / PM  | Bun                 |
 | Auth          | Better Auth         |
-| ORM           | Prisma              |
+| ORM           | Drizzle             |
 | Database      | PostgreSQL (Docker)  |
 | Styling       | Tailwind CSS        |
 | Lint/Format   | Biome               |
@@ -20,29 +20,26 @@ Open Agent Skills Ecosystem — Next.js, Bun, Prisma, Better Auth ve PostgreSQL 
 ```
 nextjs-skills/
 ├── skills/
-│   ├── nextjs-bun-prisma-stack/    # Proje iskelet kurulumu
-│   │   └── SKILL.md
-│   ├── better-auth-setup/          # Better Auth entegrasyonu
-│   │   └── SKILL.md
-│   └── prisma-postgres-workflows/  # Prisma + PG workflow'ları
+│   └── nextjs-fullstack-setup/       # Full-stack proje kurulumu + auth + DB workflow
 │       └── SKILL.md
 ├── templates/
-│   ├── docker-compose.yml          # PostgreSQL 16 container
-│   ├── .env.example                # Ortam değişkenleri (secret'sız)
-│   ├── biome.json                  # Biome formatter + linter config
-│   ├── tsconfig.json               # TypeScript strict config
-│   └── prisma/
-│       ├── schema.prisma           # Base Prisma schema
-│       └── seed.ts                 # Örnek seed dosyası
+│   ├── docker-compose.yml            # PostgreSQL 16 container
+│   ├── .env.example                  # Ortam değişkenleri (secret'sız)
+│   ├── biome.json                    # Biome formatter + linter config
+│   ├── tsconfig.json                 # TypeScript strict config
+│   ├── drizzle.config.ts             # drizzle-kit config
+│   └── drizzle/
+│       ├── schema.ts                 # Drizzle schema (Post + Auth tabloları)
+│       └── seed.ts                   # Örnek seed dosyası
 ├── scripts/
-│   ├── init.sh                     # Proje bootstrap
-│   ├── db-migrate.sh               # Dev/prod migration
-│   ├── db-reset.sh                 # Dev-only DB reset
-│   └── db-seed.sh                  # Prisma seed
+│   ├── init.sh                       # Proje bootstrap
+│   ├── db-migrate.sh                 # Dev/prod Drizzle migration
+│   ├── db-reset.sh                   # Dev-only DB reset
+│   └── db-seed.sh                    # Drizzle seed
 ├── .gitignore
-├── CONTRIBUTING.md                 # Katkı rehberi
-├── SECURITY.md                     # Güvenlik politikası
-├── LICENSE                         # Apache-2.0
+├── CONTRIBUTING.md                   # Katkı rehberi
+├── SECURITY.md                       # Güvenlik politikası
+├── LICENSE                           # Apache-2.0
 └── README.md
 ```
 

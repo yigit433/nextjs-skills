@@ -40,7 +40,7 @@
       "dist",
       "build",
       "coverage",
-      "prisma/migrations",
+      "drizzle/migrations",
       "*.min.js"
     ]
   }

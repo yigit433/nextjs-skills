@@ -31,8 +31,9 @@ copy_if_missing "$TEMPLATES_DIR/docker-compose.yml" "$PROJECT_DIR/docker-compose
 copy_if_missing "$TEMPLATES_DIR/.env.example"       "$PROJECT_DIR/.env.example"
 copy_if_missing "$TEMPLATES_DIR/biome.json"         "$PROJECT_DIR/biome.json"
 copy_if_missing "$TEMPLATES_DIR/tsconfig.json"      "$PROJECT_DIR/tsconfig.json"
-copy_if_missing "$TEMPLATES_DIR/prisma/schema.prisma" "$PROJECT_DIR/prisma/schema.prisma"
-copy_if_missing "$TEMPLATES_DIR/prisma/seed.ts"     "$PROJECT_DIR/prisma/seed.ts"
+copy_if_missing "$TEMPLATES_DIR/drizzle/schema.ts"  "$PROJECT_DIR/drizzle/schema.ts"
+copy_if_missing "$TEMPLATES_DIR/drizzle/seed.ts"    "$PROJECT_DIR/drizzle/seed.ts"
+copy_if_missing "$TEMPLATES_DIR/drizzle.config.ts"  "$PROJECT_DIR/drizzle.config.ts"
 
 # --- 2. .env dosyası oluştur (.env.example'dan) ---
 if [ ! -f "$PROJECT_DIR/.env" ]; then
@@ -68,14 +69,12 @@ until docker compose exec -T postgres pg_isready -U postgres > /dev/null 2>&1; d
 done
 echo "    PostgreSQL hazır (${elapsed}s)"
 
-# --- 5. Prisma migrate ---
-if [ -f "$PROJECT_DIR/prisma/schema.prisma" ]; then
-  echo "==> Prisma migration çalıştırılıyor..."
-  cd "$PROJECT_DIR" && bunx prisma migrate dev --name init
-  echo "==> Prisma client generate ediliyor..."
-  cd "$PROJECT_DIR" && bunx prisma generate
+# --- 5. Drizzle schema push ---
+if [ -f "$PROJECT_DIR/drizzle/schema.ts" ]; then
+  echo "==> Drizzle schema push çalıştırılıyor..."
+  cd "$PROJECT_DIR" && bunx drizzle-kit push
 else
-  echo "==> [SKIP] schema.prisma bulunamadı"
+  echo "==> [SKIP] drizzle/schema.ts bulunamadı"
 fi
 
 echo ""

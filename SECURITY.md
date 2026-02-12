@@ -24,7 +24,7 @@ Bu repo'daki skill'ler ve template'ler şu güvenlik kurallarına uyar:
 - `.env` dosyaları **asla** commit edilmez.
 - `.env.example` dosyalarında **gerçek secret bulunmaz**.
 - Production veritabanı reset script'leri **çalışmayı reddeder**.
-- Prisma migration'ları prod ortamda yalnızca `migrate deploy` ile uygulanır.
+- Drizzle migration'ları prod ortamda yalnızca `drizzle-kit migrate` ile uygulanır.
 - Auth secret'ları en az 32 karakter, rastgele üretilmiş olmalıdır.
 
 ## Bağımlılık Güvenliği

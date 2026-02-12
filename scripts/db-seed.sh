@@ -2,14 +2,13 @@
 set -euo pipefail
 
 # ============================================
-# db-seed.sh — Prisma seed çalıştırır
+# db-seed.sh — Drizzle seed çalıştırır
 # ============================================
-# package.json'da prisma.seed tanımı gerektirir:
-#   "prisma": { "seed": "bun prisma/seed.ts" }
+# drizzle/seed.ts dosyasını doğrudan bun ile çalıştırır.
 #
 # Kullanım: bash scripts/db-seed.sh
 
 echo "==> Seed çalıştırılıyor..."
-bunx prisma db seed
+bun drizzle/seed.ts
 
 echo "==> Seed tamamlandı."
