@@ -1,21 +1,7 @@
 ---
 name: nextjs-fullstack-setup
 description: Next.js App Router + Bun + Drizzle ORM + Better Auth + Tailwind CSS + Biome ile full-stack proje kurulumu, authentication entegrasyonu ve DB workflow'ları.
-version: "1.0.0"
 license: Apache-2.0
-tags:
-  - nextjs
-  - bun
-  - drizzle
-  - better-auth
-  - tailwind
-  - biome
-  - typescript
-  - postgresql
-  - scaffold
-  - authentication
-  - database
-  - workflow
 ---
 
 # nextjs-fullstack-setup
